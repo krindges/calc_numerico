@@ -75,7 +75,7 @@ import sympy as sp
 import plotly.graph_objects as go
 
 # Título do app
-st.title("📌 Método da Bissecção para Encontrar Raízes")
+st.title("📌 Zeros de função: Método da Bissecção")
 
 # Entrada da função pelo usuário
 st.subheader("Digite a função f(x):")

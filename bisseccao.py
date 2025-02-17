@@ -9,6 +9,8 @@ st.title("📌 Método da Bissecção para Encontrar Raízes")
 # Entrada da função pelo usuário
 st.subheader("Digite a função f(x):")
 func_str = st.text_input("Exemplo: x**3 - 5*x + 2", "x**3 - 5*x + 2")
+x1 = st.number_input("Exemplo: -3", min_value=None, max_value=None, value=-3, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None, disabled=False, label_visibility="visible")
+x2 = st.number_input("Exemplo: 3", min_value=None, max_value=None, value=3, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None, disabled=False, label_visibility="visible")
 
 # Definir variável simbólica
 x = sp.symbols('x')
@@ -24,7 +26,7 @@ try:
     st.subheader("📈 Gráfico da Função")
     fig, ax = plt.subplots(figsize=(6, 4))
     
-    x_vals = np.linspace(-10, 10, 400)
+    x_vals = np.linspace(x1, x2, 400)
     y_vals = f_lambdified(x_vals)
     
     ax.axhline(0, color='black', linewidth=1)  # Linha horizontal
@@ -41,6 +43,8 @@ try:
     st.subheader("⚙️ Escolha o Intervalo para a Bissecção")
     a = st.number_input("Digite o valor de a:", value=0.0, step=0.1)
     b = st.number_input("Digite o valor de b:", value=2.0, step=0.1)
+    tol =st.number_input("Precisão (tolerância):", value=1.0e-6, step=1.0e-7,format="%.2e")
+    max_iter = st.number_input("Número máximo de iterações:", value=100, step=1)
 
     # Botão para calcular a raiz
     if st.button("🔍 Encontrar Raiz"):
@@ -49,8 +53,6 @@ try:
             st.error("O intervalo [a, b] não contém uma raiz válida. Escolha outro intervalo.")
         else:
             # Método da Bissecção
-            tol = 1e-6  # Precisão
-            max_iter = 100  # Número máximo de iterações
             iteracoes = 0
             while (b - a) / 2 > tol and iteracoes < max_iter:
                 c = (a + b) / 2  # Ponto médio

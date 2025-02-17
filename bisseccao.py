@@ -52,7 +52,7 @@ try:
     st.plotly_chart(fig, use_container_width=True)
 
     # Entrada do intervalo [a, b]
-    st.subheader("Escolha o Intervalo [a,b], a precisão e número máximo de iterações")
+    st.subheader("Escolha o Intervalo [a,b], a precisão e o número máximo de iterações")
     a = st.number_input("Digite o valor de a:", value=0.0, step=0.1, format="%.1f")
     b = st.number_input("Digite o valor de b:", value=2.0, step=0.1, format="%.1f")
     tol = st.number_input("Precisão (tolerância):", value=1.0e-6, step=1.0e-7, format="%.2e")

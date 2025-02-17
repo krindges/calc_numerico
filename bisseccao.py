@@ -11,7 +11,6 @@ st.subheader("Digite a função f(x):")
 func_str = st.text_input("Exemplo: x**3 - 5*x + 2", "x**3 - 5*x + 2")
 x1 = st.number_input("Exemplo: -3", min_value=None, max_value=None, value=-3, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None, disabled=False, label_visibility="visible")
 x2 = st.number_input("Exemplo: 3", min_value=None, max_value=None, value=3, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None, disabled=False, label_visibility="visible")
-
 # Definir variável simbólica
 x = sp.symbols('x')
 
